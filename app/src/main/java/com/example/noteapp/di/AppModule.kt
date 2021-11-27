@@ -5,10 +5,7 @@ import androidx.room.Room
 import com.example.noteapp.features.data.data_source.NoteDatabase
 import com.example.noteapp.features.data.repository.NoteRepositoryImpl
 import com.example.noteapp.features.domain.repository.NoteRepository
-import com.example.noteapp.features.domain.usecase.AddNote
-import com.example.noteapp.features.domain.usecase.DeleteNote
-import com.example.noteapp.features.domain.usecase.GetNotes
-import com.example.noteapp.features.domain.usecase.NoteUseCases
+import com.example.noteapp.features.domain.usecase.*
 import dagger.*
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
@@ -40,7 +37,8 @@ object AppModule {
         return NoteUseCases(
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
-            addNote = AddNote(repository)
+            addNote = AddNote(repository),
+            getNote = GetNote(repository)
         )
     }
 }
